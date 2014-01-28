@@ -366,6 +366,6 @@ NoEvalMapReduce._delete = function() { };
 // PouchDB uses iteration over a map to apply the plugins, so there is no
 // guaranteed order of plugin application (according to ECMA standard) and we
 // cannot be sure that we are applied *after* the original plugin
-Pouch.plugin('mapreduce', NoEvalMapReduce);
+PouchDB.plugin('mapreduce', NoEvalMapReduce);
 
 })(this);
