@@ -723,3 +723,9 @@ function QueryParseError(message) {
 }
 
 utils.inherits(QueryParseError, Error);
+
+// override the default map/reduce functions
+// already on the PouchDB object
+if (typeof window !== 'undefined' && window.PouchDB) {
+  window.PouchDB.plugin(exports);
+}

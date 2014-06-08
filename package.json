@@ -1,18 +1,18 @@
 {
-  "name": "pouchdb-mapreduce",
-  "version": "2.2.3",
-  "description": "Map Reduce =====",
+  "name": "pouchdb.mapreduce.noeval",
+  "version": "0.2.0",
+  "description": "Map Reduce without eval()",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/pouchdb/mapreduce.git"
+    "url": "git://github.com/evidenceprime/pouchdb.mapreduce.noeval.git"
   },
   "scripts": {
     "test-node": "TEST_DB=testdb,http://localhost:5984/testdb istanbul test ./node_modules/mocha/bin/_mocha test/test.js",
     "test-browser": "./bin/test-browser.js",
     "jshint": "jshint -c .jshintrc *.js test/test.js",
     "test": "npm run jshint && ./bin/run-test.sh",
-    "build": "mkdir -p dist && browserify index.js -s mapReduce -o dist/pouchdb-mapreduce.js",
+    "build": "mkdir -p dist && browserify index.js -o dist/pouchdb.mapreduce.noeval.js",
     "dev": "browserify test/test.js > test/test-bundle.js && npm run dev-server",
     "dev-server": "./bin/dev-server.js",
     "coverage": "npm test --coverage && istanbul check-coverage --lines 100 --function 100 --statements 100 --branches 100"
@@ -27,7 +27,7 @@
   "author": "",
   "license": "Apache",
   "bugs": {
-    "url": "https://github.com/pouchdb/mapreduce/issues"
+    "url": "https://github.com/evidenceprime/pouchdb.mapreduce.noeval/issues"
   },
   "dependencies": {
     "lie": "^2.6.0",
