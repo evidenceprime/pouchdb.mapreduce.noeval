@@ -1,11 +1,11 @@
 pouchdb.mapreduce.noeval
 =====
 
-Fork of the PouchDB [map/reduce project](https://github.com/pouchdb/mapreduce) which avoids using `eval()`. Thus, it allows using PouchDB in environments with strict policy against dynamic script evaluation, such as Chrome Packaged Apps or Adobe AIR runtime.
+Fork of the PouchDB [map/reduce project](https://github.com/pouchdb/mapreduce) which avoids using `eval()`. Thus, it allows using PouchDB in environments with a strict policy against dynamic script evaluation, such as Chrome Packaged Apps or Adobe AIR runtime.
 
-Note that this kind of treatment is not technically required for Chrome Extensions or (now deprecated) Chrome Apps using manifest in version 1. For these kind of applications, the content security policy can be relaxed.
+Note that this kind of treatment is not technically required for Chrome Extensions or (now deprecated) Chrome Apps using manifest in version 1. For these kind of applications, the content security policy can be relaxed. However, although this will allow you to use `eval()`, it also requires putting the page in a sandbox, which renders PouchDB unusable, since sandboxed pages don't have access to IndexedDB. 
 
-However, using `eval()` in new Chrome Apps would also require putting the page using the script in a sandbox, which in turn renders PouchDB unusable, as sandboxed page doesn't have access to IndexedDB. Using this plugin is effectively the only way to use PouchDB in a packaged app without putting the original MapReduce plugin in a sandbox and setting a wrapper around it to communicate with the rest of library via window.postMessage() calls.
+Using this plugin is effectively the only way to use PouchDB in a packaged app without putting the original MapReduce plugin in a sandbox and setting a wrapper around it to communicate with the rest of library via window.postMessage() calls.
 
 This plugin works by running a simple regex over your `map` functions, so it only works for basic usages. The most complex kind of map function you can do is e.g.
 
@@ -29,26 +29,26 @@ To use this plugin, include it after `pouchdb.js` in your HTML page:
 
 ```html
 <script src="pouchdb.js"></script>
-<script src="pouchdb.mapreduce-noeval.js"></script>
+<script src="pouchdb.mapreduce.noeval.js"></script>
 ```
 
 This plugin is also available from Bower:
 
 ```
-bower install pouchdb-mapreduce-noeval
+bower install pouchdb.mapreduce.noeval
 ```
 
 Or to use it in Node.js, just npm install it:
 
 ```
-npm install pouchdb-mapreduce-noeval
+npm install pouchdb.mapreduce.noeval
 ```
 
 And then attach it to the `PouchDB` object:
 
 ```js
 var PouchDB = require('pouchdb');
-PouchDB.plugin(require('pouchdb-mapreduce-noeval'));
+PouchDB.plugin(require('pouchdb.mapreduce.noeval'));
 ```
 
 Building
