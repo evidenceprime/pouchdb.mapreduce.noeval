@@ -22,6 +22,8 @@ function(doc) {
 This plugin will also fall back to the regex only if  `eval()` throws an error, so you
 can still use it as-is in environments that support `eval()`.
 
+Note, this plugin is *not* required when using temporary views (see [query closures](http://pouchdb.com/api.html#query_database)).
+
 Usage
 -----
 
