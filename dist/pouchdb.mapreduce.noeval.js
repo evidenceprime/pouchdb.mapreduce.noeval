@@ -100,7 +100,7 @@ module.exports = function (func, emit, sum, log, isArray, toJSON) {
 };
 
 // uncomment this to test using noeval everywhere
-//module.exports = noeval;
+module.exports = noeval;
 },{"./noeval":29}],3:[function(require,module,exports){
 'use strict';
 
